@@ -798,17 +798,15 @@ textarea {
     height: 300px;
   }
 }
-/* ==========================================================================
-   CARROSSEL INFINITO (ESTILO NETFLIX INTERATIVO)
-   ========================================================================== */
+
 
 .infinite-slider {
   width: 100%;
-  overflow: hidden; /* Oculta o scroll nativo para o JS assumir o controle */
+  overflow: hidden; 
   padding: 2.5rem 0;
   position: relative;
   cursor: grab;
-  user-select: none; /* Impede seleção de texto ao arrastar */
+  user-select: none; 
 }
 
 .infinite-slider:active {
@@ -838,7 +836,7 @@ textarea {
   height: 100%;
   object-fit: cover;
   display: block;
-  pointer-events: none; /* Importante para não bugar o clique e arraste */
+  pointer-events: none; 
 }
 
 .slider-item:hover {
@@ -846,7 +844,7 @@ textarea {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* Estilos auxiliares para o Slider de Depoimentos */
+
 .testimonial-card {
   display: none;
 }

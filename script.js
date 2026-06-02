@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- ELEMENTOS EXISTENTES ---
+  
   const header = document.getElementById("header");
   const menuToggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav");
@@ -13,9 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentSlide = 0;
   let testimonialAutoplay;
 
-  // ==========================================
-  // 1. HEADER & MENU MOBILE
-  // ==========================================
+
   const setHeaderState = () => {
     if (header) header.classList.toggle("scrolled", window.scrollY > 24);
   };
@@ -30,9 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nav?.classList.remove("is-open");
   };
 
-  // ==========================================
-  // 2. SLIDER DE DEPOIMENTOS
-  // ==========================================
+
   const showSlide = (index) => {
     if (testimonialCards.length === 0) return;
     testimonialCards.forEach((card, i) => card.classList.toggle("active", i === index));
@@ -59,9 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================
-  // 3. CARROSSEL INFINITO (AUTOMÁTICO + ARRASTE)
-  // ==========================================
+
   const initInfiniteSlider = () => {
     const slider = document.querySelector('.infinite-slider');
     const track = document.getElementById("infinite-track");
@@ -71,9 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let startX;
     let scrollLeft;
     let autoScrollPos = 0;
-    const speed = 0.8; // Velocidade do movimento automático
+    const speed = 0.8; 
 
-    // Função de animação contínua
     const animate = () => {
       if (!isDown) {
         autoScrollPos += speed;
@@ -88,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(animate);
     };
 
-    // --- EVENTOS DE MOUSE ---
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
       startX = e.pageX - slider.offsetLeft;
@@ -101,18 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slider.addEventListener('mouseup', () => {
       isDown = false;
-      autoScrollPos = slider.scrollLeft; // Sincroniza o automático com o manual
+      autoScrollPos = slider.scrollLeft; 
     });
 
     slider.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Multiplicador de sensibilidade
+      const walk = (x - startX) * 2; 
       slider.scrollLeft = scrollLeft - walk;
     });
 
-    // --- EVENTOS DE TOQUE (MOBILE) ---
+    
     slider.addEventListener('touchstart', (e) => {
       isDown = true;
       startX = e.touches[0].pageX - slider.offsetLeft;
@@ -134,9 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animate);
   };
 
-  // ==========================================
-  // 4. INICIALIZAÇÃO GERAL
-  // ==========================================
+
   
   window.addEventListener("scroll", setHeaderState);
   menuToggle?.addEventListener("click", toggleMenu);
@@ -169,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startTestimonialTimer();
   });
 
-  // Inicializa tudo
+
   setHeaderState();
   showSlide(0);
   startTestimonialTimer();
