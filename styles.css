@@ -508,37 +508,34 @@ textarea {
 .testimonial-slider {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .slider-track {
-  position: relative;
-  min-height: 18rem;
+  width: 100%;
 }
 
 .testimonial-card {
-  position: absolute;
-  inset: 0;
+  display: none;
+  width: 100%;
   padding: 2rem;
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, #ffffff, #f7f9fc);
-  opacity: 0;
-  transform: translateX(24px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  pointer-events: none;
+  background: linear-gradient(180deg, #fcfcfc, #f7f9fc);
+  box-sizing: border-box;
 }
 
 .testimonial-card.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+  display: block;
 }
 
 .testimonial-card p {
   margin: 0 0 1.2rem;
   font-size: 1.08rem;
   color: var(--color-text);
+  line-height: 1.7;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .testimonial-card strong {
